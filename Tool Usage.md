@@ -1,41 +1,52 @@
 # Repository Structure
 
+M.Sc_Project.zip       # Contains input data and Python scripts to analyze interaction energy and important internal coordinates
+Project Description.md # Project overview and background
+Tool Usage.md          # Repository structure and usage instructions
 
-M.sc_Project.zip   # contains input data and python script to analyse interaction energy and important internal  
-Project Description.md                     # project overview and background  
-Tool Usage.md                  # repository structure and usage instructions 
+Usage
+1. Clone the repository
+2. Unzip the project data
   
+## A) Calculating Internal Coordinates (Bond Length, Bond Angle, Dihedral Angle)
 
-## Usage
+    Prepare the input file:
+    Create coordinate_number.txt and list the atom IDs for the internal coordinates you want to calculate:
 
-    Clone the repository:
+        Bond: two atom IDs (e.g., 1 2)
 
-Unzip the data:
+        Angle: three atom IDs (e.g., 1 2 3)
 
-unzip M.Sc_Project.zip
+        Dihedral/Torsion: four atom IDs (e.g., 1 2 3 4)
 
-## For  Calculating Internal Coordinates (Bond angle, Bond length and Dihedral Angle)
+    Input files required:
 
-Prepare the input file:
-In coordinate_number.txt file and list the atom IDs for the internal coordinates you want to calculate:
+        .pdb file for each conformer in their respective folders (N1, N2, P1, P2)
 
-Bond: two atom IDs (e.g., 1 2)
+        coordinate_number.txt in the project folder
 
-Angle: three atom IDs (e.g., 1 2 3)
+    Run the script:
 
-Dihedral/Torsion: four atom IDs (e.g., 1 2 3 4)
+python3 Internal_coordinates.py N1.pdb coordinate_number.txt output.txt
 
-Run the script:
-Execute the Python script to extract the internal coordinates:
+    N1.pdb → PDB file of the conformer
 
-    .python3 Internal_coordinates.py N1.pdb coordinate_number.txt output.txt
+    coordinate_number.txt → input atom numbers
 
-## Run the analysis script for Analalysing interaction energy:
+    output.txt → file to save the calculated internal coordinates
 
-    python Interaction_ver_2.py
+## B) Analyzing Interaction Energy
 
-Input files required (per conformer folder N1, N2, P1, P2):
+    Input files required per conformer folder (N1, N2, P1, P2):
 
-    .log file (quantum chemistry output)
+        .log file (quantum chemistry output)
 
-    .pdb file (coordinates)
+        .pdb file (coordinates)
+
+    Run the analysis script:
+
+python Interaction_ver_2.py
+
+This will calculate interaction energies based on the provided input files.
+
+If you want, I can also add a mini example showing a sample coordinate_number.txt and expected output, which makes it very user-friendly for GitHub users. Do you want me to do that?
